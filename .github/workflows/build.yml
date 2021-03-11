@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: echo 'Building...'
           
-  greet-dev:
+  deploy-dev:
     runs-on: ubuntu-latest
     
     environment: "Development"
@@ -26,3 +26,23 @@ jobs:
     steps:
     - name: Deploy
       run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
+      
+  deploy-stage:
+    runs-on: ubuntu-latest
+    
+    environment: "Stage"
+
+    steps:
+    - name: Deploy
+      run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
+      
+  deploy-prod:
+    runs-on: ubuntu-latest
+    
+    environment: "Production"
+
+    steps:
+    - name: Deploy
+      run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
+      
+      
