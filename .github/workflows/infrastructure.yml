@@ -1,0 +1,38 @@
+name: Infrastructure Job
+
+on:
+  workflow_dispatch:
+    inputs:
+      tool:
+        description: 'Tool'
+        default: 'logger'
+        required: true
+
+jobs:
+  install-dev:
+    runs-on: ubuntu-latest
+    
+    environment: "Development"
+
+    steps:
+    - name: Run
+      run: echo "Ran ${{ github.event.inputs.tool }} on ${{ secrets.environment }}"
+      
+  install-stage:
+    runs-on: ubuntu-latest
+    
+    environment: "Stage"
+
+    steps:
+    - name: Run
+      run: echo "Ran ${{ github.event.inputs.tool }} on ${{ secrets.environment }}"
+      
+  install-prod:
+    runs-on: ubuntu-latest
+    
+    environment: "Production"
+
+    steps:
+    - name: Run
+      run: echo "Ran ${{ github.event.inputs.tool }} on ${{ secrets.environment }}"
+
