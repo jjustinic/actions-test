@@ -9,6 +9,22 @@ on:
         required: true
 
 jobs:
+  install:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: Development
+            value: development
+          - name: Stage
+            value: staging
+          - name: Production
+            value: production
+    environment: ${{ matrix.name }}
+    steps:
+    - name: Run
+      run: echo "This is ${{ matrix.value }}"
+          
   install-dev:
     runs-on: ubuntu-latest
     
