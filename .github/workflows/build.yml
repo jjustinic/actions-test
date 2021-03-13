@@ -33,4 +33,4 @@ jobs:
 
     steps:
     - name: Show Matrix Values
-      run: echo "${{ matrix.resourceGroup }}" && echo "${{ matrix.clusterName }}"
+      run: echo "${{ matrix.resourceGroup }}" && echo "${{ matrix.clusterName }}" && echo "${{ secrets.ENVIRONMENT }}"
