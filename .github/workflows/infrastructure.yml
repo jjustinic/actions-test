@@ -20,10 +20,11 @@ jobs:
             value: staging
           - name: Production
             value: production
-    environment: ${{ matrix.include.name }}
+    environment:
+       name: ${{ matrix.name }}
     steps:
     - name: Run
-      run: echo "This is ${{ matrix.include.value }}"
+      run: echo "This is ${{ matrix.value }}"
           
   install-dev:
     runs-on: ubuntu-latest
