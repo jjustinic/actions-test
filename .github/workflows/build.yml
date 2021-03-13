@@ -28,7 +28,8 @@ jobs:
     needs: configure
 
     strategy:
-      matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
+      matrix:
+        includes: ${{ fromJson(needs.configure.outputs.matrix) }}
 
     steps:
     - name: Show Matrix Values
