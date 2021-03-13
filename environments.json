@@ -5,6 +5,11 @@
     "clusterName": "dev-cluster"
   },
   {
+    "environment": "QA",
+    "resourceGroup": "qa-rg",
+    "clusterName": "qa-cluster"
+  },
+  {
     "environment": "Stage",
     "resourceGroup": "stage-rg",
     "clusterName": "stage-cluster"
