@@ -1,3 +1,6 @@
+{
+  "name": ["Development", "Stage", "Production"]
+  "strategy":
 [
   {
     "name": "Development",
@@ -15,3 +18,4 @@
     "clusterName": "prod-cluster"
   }
 ]
+}
