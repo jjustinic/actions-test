@@ -1,16 +1,16 @@
 [
   {
-    "environment": "Development",
+    "name": "Development",
     "resourceGroup": "dev-rg",
     "clusterName": "dev-cluster"
   },
   {
-    "environment": "Stage",
+    "name": "Stage",
     "resourceGroup": "stage-rg",
     "clusterName": "stage-cluster"
   },
   {
-    "environment": "Production",
+    "name": "Production",
     "resourceGroup": "prod-rg",
     "clusterName": "prod-cluster"
   }
