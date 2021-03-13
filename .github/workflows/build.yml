@@ -29,12 +29,12 @@ jobs:
 
     strategy:
       matrix:
-        includes: ${{ fromJson(needs.configure.outputs.matrix) }}
+        include: ${{ fromJson(needs.configure.outputs.matrix) }}
     
     name: ${{ matrix.environment }}
     
-    #environment:
-    # name: ${{ matrix.name }}
+    environment:
+      name: ${{ matrix.environment }}
 
     steps:
     - name: Show Matrix Values
