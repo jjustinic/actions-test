@@ -1,5 +1,5 @@
 {
-  "name": ["Development", "Stage", "Production"]
+  "name": ["Development", "Stage", "Production"],
   "strategy":
 [
   {
