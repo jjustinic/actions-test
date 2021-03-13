@@ -2,53 +2,38 @@ name: Build
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+    - main
   workflow_dispatch:
 
 jobs:
-  build:
+  configure:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    outputs:
+      matrix: ${{ steps.json.outputs.matrix }}
 
-      - name: Build
-        run: echo 'Building...'
-          
-  deploy-dev:
+    steps:
+    - name: Read JSON
+      id: json
+      run: |
+        echo "::set-output name=matrix::$(jq -c . environments.json)"
+
+  install:
     runs-on: ubuntu-latest
-    
-    environment: "Development"
-    
-    needs: "build"
+
+    needs: configure
+
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.configure.outputs.matrix) }}
 
     steps:
-    - name: Deploy
-      run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
-      
-  deploy-stage:
-    runs-on: ubuntu-latest
-        
-    environment: "Stage"
-    
-    needs: "build"
+    - name: Git Checkout
+      uses: actions/checkout@v2
 
-    steps:
-    - name: Deploy
-      run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
-      
-  deploy-prod:
-    runs-on: ubuntu-latest
-    
-    environment: "Production"
-    
-    needs: "deploy-stage"
+    - name: Show Matrix Values
+      run: echo "${{ matrix.resourceGroup }}" && echo "${{ matrix.clusterName }}"
 
-    steps:
-    - name: Deploy
-      run: echo "Deployed to ${{ secrets.ENVIRONMENT }}"
-      
-      
+    - name: Helm Upgrade
+      run: ./*/entrypoint-*.sh
