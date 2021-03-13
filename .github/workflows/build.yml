@@ -34,7 +34,7 @@ jobs:
     strategy:
       matrix:
         include: ${{ fromJson(needs.configure.outputs.matrix) }}
-      max-parallel: 1
+      max-parallel: 2
         
     environment:
       name: ${{ matrix.environment }}
