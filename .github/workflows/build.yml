@@ -30,9 +30,11 @@ jobs:
     strategy:
       matrix:
         includes: ${{ fromJson(needs.configure.outputs.matrix) }}
-        
-    environment:
-      name: ${{ matrix.name }}
+    
+    name: ${{ matrix.name }}
+    
+    #environment:
+    # name: ${{ matrix.name }}
 
     steps:
     - name: Show Matrix Values
