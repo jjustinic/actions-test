@@ -24,6 +24,9 @@ jobs:
 
   install:
     runs-on: ubuntu-latest
+    
+    environment:
+      name: ${{ matrix.name }}
 
     needs: configure
 
