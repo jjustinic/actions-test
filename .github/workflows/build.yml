@@ -5,6 +5,15 @@ on:
     branches:
     - main
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
 jobs:
   configure:
@@ -41,4 +50,4 @@ jobs:
 
     steps:
     - name: Show Matrix Values
-      run: echo "${{ matrix.resourceGroup }}" && echo "${{ matrix.clusterName }}" && echo "${{ secrets.ENVIRONMENT }}"
+      run: echo "${{ matrix.resourceGroup }}" && echo "${{ matrix.clusterName }}" && echo "${{ secrets.ENVIRONMENT }}" && echo "${{ github.event.inputs.home }}"
