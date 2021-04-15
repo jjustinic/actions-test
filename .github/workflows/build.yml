@@ -37,6 +37,8 @@ jobs:
       uses: jfrog/setup-jfrog-cli@v1
 
     - run: jfrog --version && env
+    
+    - run: echo "${{ github.event.release.tag_name }}"
 
   install:
     name: Install ${{ matrix.environment }}
