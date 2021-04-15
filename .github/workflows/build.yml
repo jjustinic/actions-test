@@ -32,9 +32,11 @@ jobs:
       id: json
       run: |
         echo "::set-output name=matrix::$(jq -c . environments.json)"
+      
+    - name: JFrog
+      uses: jfrog/setup-jfrog-cli@v1
 
-    - name: Show Environment
-      run: env
+    - run: jfrog --version && env
 
   install:
     name: Install ${{ matrix.environment }}
