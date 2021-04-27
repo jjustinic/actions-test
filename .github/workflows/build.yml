@@ -39,6 +39,8 @@ jobs:
     - run: jfrog --version && env
     
     - run: echo "${{ github.event.release.tag_name }}"
+    
+    - run: lftp
 
   install:
     name: Install ${{ matrix.environment }}
