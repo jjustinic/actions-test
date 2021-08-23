@@ -1,5 +1,12 @@
 on:
   release:
+    - published
+    - unpublished
+    - created
+    - edited
+    - deleted
+    - prereleased
+    - released
 
 name: Release Event
 
