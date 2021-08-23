@@ -1,10 +1,14 @@
 on:
   release:
 
+name: Release Event
+
 jobs:
   show_event:
-    name: Show Release Event
+    name: Show Event
+
     runs-on: ubuntu-latest
+
     steps:
       - run: |
           echo "Event payload:\n${{ github.event }}"
