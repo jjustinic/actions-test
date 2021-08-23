@@ -11,5 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          echo "Event payload:\n${{ github.event }}"
+      - name: Payload Info
+        uses: Dovyski/payload-info-action@v1
+
