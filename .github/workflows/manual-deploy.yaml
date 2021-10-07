@@ -14,15 +14,11 @@ on:
         required: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run Another Workflow
-        uses: jjustinic/actions-test/.github/workflows/deploy.yaml@main
-        with:
-          environment: ${{ inputs.environment }}
-          region: ${{ inputs.region }}
-          tag: ${{ inputs.tag }}
-        secrets:
-          credentials: ${{ secrets.ENVIRONMENT }}
+  deploy:
+    uses: ./.github/workflows/deploy.yaml@main
+    with:
+      environment: ${{ inputs.environment }}
+      region: ${{ inputs.region }}
+      tag: ${{ inputs.tag }}
+    secrets:
+        credentials: ${{ secrets.ENVIRONMENT }}
