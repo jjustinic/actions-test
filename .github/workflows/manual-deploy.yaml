@@ -17,8 +17,8 @@ jobs:
   deploy:
     uses: jjustinic/actions-test/.github/workflows/deploy.yaml@main
     with:
-      environment: ${{ inputs.environment }}
-      region: ${{ inputs.region }}
-      tag: ${{ inputs.tag }}
+      environment: ${{ github.event.inputs.environment }}
+      region: ${{ github.event.inputs.region }}
+      tag: ${{ github.event.inputs.tag }}
     secrets:
-        credentials: ${{ secrets.ENVIRONMENT }}
+      credentials: ${{ secrets.ENVIRONMENT }}
