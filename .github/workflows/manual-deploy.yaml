@@ -1,0 +1,28 @@
+name: Manual Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+      region:
+        description: 'Region'
+        required: true
+      tag:
+        description: 'Tag'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Another Workflow
+        uses: jjustinic/actions-test/.github/workflows/deploy.yaml@main
+        with:
+          environment: ${{ inputs.environment }}
+          region: ${{ inputs.region }}
+          tag: ${{ inputs.tag }}
+        secrets:
+          credentials: ${{ secrets.ENVIRONMENT }}
