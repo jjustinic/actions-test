@@ -1,4 +1,4 @@
-name: GitHub Actions Test Build ${{ github.event.inputs.name }}
+name: GitHub Actions Test Build
 
 on:
   push:
