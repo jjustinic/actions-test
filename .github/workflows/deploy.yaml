@@ -30,7 +30,7 @@ jobs:
     - name: Filter Environments
       id: json
       run: |
-        echo "::set-output name=matrix::$(jq -c "[.[] | select(.environment == \"${INPUT_ENVIRONMENT}\")]" environments.json)"
+        echo "::set-output name=matrix::$(jq -c "{\"include\":[.[] | select(.environment == \"${INPUT_ENVIRONMENT}\")]}" environments.json)"
       
   deploy:
     runs-on: ubuntu-latest
