@@ -1,22 +1,29 @@
 [
   {
-    "environment": "Development",
+    "environment": "dev",
     "resourceGroup": "dev-rg",
     "clusterName": "dev-cluster"
   },
   {
-    "environment": "QA",
-    "resourceGroup": "qa-rg",
-    "clusterName": "qa-cluster"
+    "environment": "stage",
+    "resourceGroup": "qa-east-rg",
+    "clusterName": "stage-east-cluster"
   },
   {
-    "environment": "Stage",
-    "resourceGroup": "stage-rg",
-    "clusterName": "stage-cluster"
+    "environment": "stage",
+    "resourceGroup": "stage-west-rg",
+    "clusterName": "stage-west-cluster"
   },
   {
-    "environment": "Production",
-    "resourceGroup": "prod-rg",
-    "clusterName": "prod-cluster"
+    "environment": "prod",
+    "region": "east",
+    "resourceGroup": "prod-east-rg",
+    "clusterName": "prod-cluster-east"
+  },
+  {
+    "environment": "prod",
+    "region": "west",
+    "resourceGroup": "prod-west-rg",
+    "clusterName": "prod-cluster-west"
   }
 ]
