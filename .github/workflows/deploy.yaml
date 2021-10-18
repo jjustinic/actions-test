@@ -31,6 +31,10 @@ jobs:
       id: json
       run: |
         echo "::set-output name=matrix::$(jq -c "{\"include\":[.[] | select(.environment == \"${INPUT_ENVIRONMENT}\")]}" environments.json | sed -e 's/\"/\\"/g')"
+
+    - name: Output Matrix 
+      run: |
+        echo "${{ steps.json.outputs.matrix }}"
       
   deploy:
     runs-on: ubuntu-latest
