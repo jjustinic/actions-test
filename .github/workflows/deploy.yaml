@@ -30,7 +30,8 @@ jobs:
     - name: Filter Environments
       id: json
       run: |
-        echo "::set-output name=matrix::$(jq -c "{\"include\":[.[] | select(.environment == \"${INPUT_ENVIRONMENT}\")]}" environments.json | jq -R .)"
+        #echo "::set-output name=matrix::$(jq -c "{\"include\":[.[] | select(.environment == \"${INPUT_ENVIRONMENT}\")]}" environments.json | jq -R .)"
+        echo "::set-output name=matrix::{\"include\":[{\"environment\":\"dev\",\"region\":\"east\",\"resourceGroup\":\"ct-n-zeaus-loy-custlogin-rg\",\"clusterName\":\"ct-n-zeaus-loy-custlogin-aks\"},{\"environment\":\"dev\",\"region\":\"west\",\"resourceGroup\":\"ct-n-zweus-loy-custlogin-rg\",\"clusterName\":\"ct-n-zweus-loy-custlogin-aks\"}]}"
       
   deploy:
     runs-on: ubuntu-latest
