@@ -28,6 +28,9 @@ jobs:
     - name: Git Checkout
       uses: actions/checkout@v2
 
+    - name: Echo Context
+      run: echo "$GITHUB_CONTEXT"
+
     - name: Read JSON
       id: json
       run: |
