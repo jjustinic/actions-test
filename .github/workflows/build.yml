@@ -36,7 +36,7 @@ jobs:
     - name: Read JSON
       id: json
       run: |
-        echo "::set-output name=matrix::$(jq -c . environments.json)"
+        echo "::set-output name=matrix::$(jq -c "[.[] | select(.environment == \"prod\")]" environments.json)"
       
     - name: JFrog
       uses: jfrog/setup-jfrog-cli@v1
